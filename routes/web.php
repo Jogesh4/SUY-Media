@@ -18,3 +18,8 @@ Route::get('/', function () {
 });
 Route::view('/login','login');
 Route::view('/sign-up','sign-up');
+
+Route::view('/user-dashboard','user.dashboard');
+
+
+Route::view('/admin-dashboard','admin.dashboard');
