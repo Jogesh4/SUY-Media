@@ -28,8 +28,8 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
+    <link href="{{asset('vendor/fonts/boxicons.css')}}" rel="stylesheet" /> 
     <!-- Core CSS -->
   
 
@@ -41,18 +41,22 @@
 
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link href="{{asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" /> 
+    <link href="{{asset('vendor/libs/apex-charts/apex-charts.css')}}" rel="stylesheet" /> 
 
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+ 
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
-
+    <script src="{{asset('vendor/js/helpers.js')}}"> </script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
+
+
+    <script src="{{asset('js/config.js')}}"> </script>
+
   </head>
 
   <body>
@@ -85,13 +89,13 @@
               </a>
             </li>
              <li class="menu-item">
-              <a href="order-detail.html" class="menu-link">
+              <a href="/order-detail" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">Order Detail</div>
               </a>
             </li>
 			<li class="menu-item">
-              <a href="my-order.html" class="menu-link">
+              <a href="/my-orders" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">My Order</div>
               </a>
@@ -103,7 +107,7 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                  <a href="/account" class="menu-link">
                     <div data-i18n="Account">Account</div>
                   </a>
                 </li>
@@ -184,7 +188,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../images/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -261,22 +265,25 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="{{asset('vendor/libs/jquery/jquery.js')}}"> </script>
+    <script src="{{asset('vendor/libs/popper/popper.js')}}"> </script>
+    <script src="{{asset('vendor/js/bootstrap.js')}}"> </script>
+    <script src="{{asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"> </script>
+    <script src="{{asset('vendor/js/menu.js')}}"> </script>
     <!-- endbuild -->
 
-    <!-- Vendors JS -->
-    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+   <!-- Vendors JS -->
+   <script src="{{asset('vendor/libs/apex-charts/apexcharts.js')}}"> </script>
 
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
 
-    <!-- Page JS -->
-    <script src="../assets/js/dashboards-analytics.js"></script>
+<!-- Main JS -->
+
+<script src="{{asset('js/main.js')}}"> </script>
+
+<!-- Page JS -->
+
+
+<script src="{{asset('js/dashboards-analytics.js')}}"> </script>
 
     
   </body>

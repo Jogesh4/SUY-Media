@@ -28,7 +28,9 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+   
+    <link href="{{asset('vendor/fonts/boxicons.css')}}" rel="stylesheet" /> 
+
 
     <!-- Core CSS -->
     
@@ -89,31 +91,31 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="dashboard-admin.html" class="menu-link">
+              <a href="/admin-dashboard" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
 			 <li class="menu-item">
-              <a href="add-category.html" class="menu-link">
+              <a href="/add-category" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-duplicate"></i>
                 <div data-i18n="Analytics">Add Category</div>
               </a>
             </li>
 			 <li class="menu-item">
-              <a href="add-product.html" class="menu-link">
+              <a href="/add-product" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">Add Product</div>
               </a>
             </li>
              <li class="menu-item">
-              <a href="add-manage-user.html" class="menu-link">
+              <a href="/manage-user" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">Manage User</div>
               </a>
             </li>
 			<li class="menu-item">
-              <a href="add-manage-order" class="menu-link">
+              <a href="/manage-order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">Manage Order</div>
               </a>
