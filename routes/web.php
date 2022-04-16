@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 Route::view('/login','login');
 Route::view('/sign-up','sign-up');
+Route::view('/forget-password','forget-password');
+Route::view('/pricing','pricing');
 
 Route::view('/user-dashboard','user.dashboard');
 Route::view('/order-detail','user.order-detail');
@@ -32,3 +34,12 @@ Route::view('/add-category','admin.add-category');
 Route::view('/add-product','admin.add-product');
 Route::view('/manage-user','admin.manage-user');
 Route::view('/manage-order','admin.manage-order');
+Route::view('/create-package','admin.create-package');
+
+
+
+
+
+Route::view('/item','items.view-item');
+Route::view('/cart','items.cart');
+Route::view('/check-out','items.check-out');

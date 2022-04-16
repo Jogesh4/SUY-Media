@@ -36,7 +36,7 @@
     <div class="container d-lg-flex d-md-flex text-center align-items-center justify-content-between">
 
       <div class="logo">
-        <a href="index.html"><img src="../images/logo.png" alt="" class="img-fluid"></a>
+        <a href="/"><img src="../images/logo.png" alt="" class="img-fluid"></a>
       </div>
 
      <!--- <nav id="navbar" class="navbar">

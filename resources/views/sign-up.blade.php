@@ -62,7 +62,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="/" class="app-brand-link gap-2">
                   <span>
                    <img class="img-fluid" src="../images/logo.png">
                   </span>

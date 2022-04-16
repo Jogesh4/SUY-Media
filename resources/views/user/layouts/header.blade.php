@@ -67,7 +67,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="/" class="app-brand-link">
               <span>
                <img class="img-fluid" src="../images/logo.png">
               </span>
@@ -112,18 +112,18 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="/account-notification" class="menu-link">
                     <div data-i18n="Notifications">Notifications</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
+                  <a href="/account-connection" class="menu-link">
                     <div data-i18n="Connections">Connections</div>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                 <div data-i18n="Authentications">Authentications</div>
@@ -145,7 +145,7 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
            
             
           </ul>
