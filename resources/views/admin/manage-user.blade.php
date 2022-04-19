@@ -35,82 +35,41 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>						
-                        <th>Date Created</th>
-                        <th>Role</th>
+                        <th>Email</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="#"><img src="managed-seo.svg" class="avatar" alt="Avatar"> Michael Holz</a></td>
-                        <td>04/10/2013</td>                        
-                        <td>Admin</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Settings"><i class="bx bx-cog"></i></a>&nbsp;
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Delete"><i class="bx bx-x"></i></a>
-                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="#"><img src="managed-seo.svg" class="avatar" alt="Avatar"> Paula Wilson</a></td>
-                        <td>05/08/2014</td>                       
-                        <td>Publisher</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Settings"><i class="bx bx-cog"></i></a>&nbsp;
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Delete"><i class="bx bx-x"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a href="#"><img src="managed-seo.svg" class="avatar" alt="Avatar"> Antonio Moreno</a></td>
-                        <td>11/05/2015</td>
-                        <td>Publisher</td>
-                        <td><span class="badge bg-label-danger me-1">Suspended</span></td>                        
-                        <td>
-                           <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Settings"><i class="bx bx-cog"></i></a>&nbsp;
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Delete"><i class="bx bx-x"></i></a>
-                        </td>                        
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><a href="#"><img src="managed-seo.svg" class="avatar" alt="Avatar"> Mary Saveley</a></td>
-                        <td>06/09/2016</td>
-                        <td>Reviewer</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                           <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Settings"><i class="bx bx-cog"></i></a>&nbsp;
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Delete"><i class="bx bx-x"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><a href="#"><img src="managed-seo.svg" class="avatar" alt="Avatar"> Martin Sommer</a></td>
-                        <td>12/08/2017</td>                        
-                        <td>Moderator</td>
-                        <td><span class="badge bg-label-warning me-1">Inactive</span></td>
-                        <td>
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Settings"><i class="bx bx-cog"></i></a>&nbsp;
-                            <a href="#" class="edit" title="" data-toggle="tooltip" data-original-title="Delete"><i class="bx bx-x"></i></a>
-                        </td>
-                    </tr>
+                    @if($users->count() > 0)
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>                        
+                            <td>@if($user->is_active)
+                                                            @php $statusBtn = '<a title="Deactivate" href="'. route('change_status', ['type' => 'user', 'id' => $user->id, 'status' => '0']) .'" class="btn btn-danger btn-sm"><i class="fas fa-solid fa-user-times"></i></a>' @endphp
+                                                            Active
+                                                        @else
+                                                            @php $statusBtn = '<a title="Activate" href="'. route('change_status', ['type' => 'user', 'id' => $user->id, 'status' => '1']) .'" class="btn btn-success btn-sm"><i class="fa fa-user-plus" aria-hidden="true"></i></a>' @endphp
+                                                            Deactive
+                                                        @endif</td>
+                            <td>
+                                                        {!! $statusBtn !!}
+                                                        {{-- <span class="btn btn-warning" onclick="edit_sub_category({{ $package->id }})"><i class="fa fa-pencil-alt" aria-hidden="true"></i></span> --}}
+                                                        <!-- <button class="btn btn-warning" ><i class="fa fa-plus" aria-hidden="true"></i></button> -->
+                            </td>
+                        </tr>
+                    @endforeach
+                    @else
+                        <div class="text-center">
+                             <h3>No User Found</h3>
+                        </div>
+                    @endif
+                    
                 </tbody>
             </table>
-			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination mt-3">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
-            </div>
+			
                             </div>
                         </div>
                         <!-- Area -->

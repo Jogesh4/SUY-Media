@@ -68,10 +68,17 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>--><!-- .navbar -->
-<div><!--<a class="top-button my-lg-0 my-md-0 my-4"><span><i class="fa fa-phone" aria-hidden="true"></i> +1 234-569-8712</span></a>-->
-<a class="top-button-login my-lg-0 my-md-0 my-4" href="/login"><span><i class="fa fa-user-o" aria-hidden="true"></i> Login</span></a>
-<a class="top-button my-lg-0 my-md-0 my-4" href="/sign-up"><span><i class="fa fa-user-o" aria-hidden="true"></i> Sign Up</span></a>
-</div>
+
+      @if (session()->has('user_id'))
+          <div>
+              <a class="top-button-login my-lg-0 my-md-0 my-4" href="/user-dashboard"><span><i class="fa fa-user-o" aria-hidden="true"></i> Dashboard</span></a>
+          </div>
+      @else
+         <div>
+          <a class="top-button-login my-lg-0 my-md-0 my-4" href="/login"><span><i class="fa fa-user-o" aria-hidden="true"></i> Login</span></a>
+          <a class="top-button my-lg-0 my-md-0 my-4" href="/sign-up"><span><i class="fa fa-user-o" aria-hidden="true"></i> Sign Up</span></a>
+          </div>
+      @endif
     </div>
   </header><!-- End Header -->
 	
@@ -106,122 +113,57 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-seo" type="button" role="tab" aria-controls="pills-seo" aria-selected="false">Managed SEO</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-building" type="button" role="tab" aria-controls="pills-building" aria-selected="false">Link Building</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Creation" type="button" role="tab" aria-controls="pills-Creation" aria-selected="false">Content Creation</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-traffic" type="button" role="tab" aria-controls="pills-traffic" aria-selected="false">Paid Traffic</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Local" type="button" role="tab" aria-controls="pills-Local" aria-selected="false">Local</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" type="button" role="tab" aria-controls="pills-analytics" aria-selected="false">SEO Analytics</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-reputation" type="button" role="tab" aria-controls="pills-reputation" aria-selected="false">Reputation Mgmt.</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-other" type="button" role="tab" aria-controls="pills-other" aria-selected="false">Other</button>
-  </li>
+  @foreach($categories as $category)
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-profile-tab" onclick="select_category({{ $category->id }})" data-bs-toggle="pill" data-bs-target="#pills-seo" type="button" role="tab" aria-controls="pills-seo" aria-selected="false">{{ $category->name }}</button>
+    </li>
+  @endforeach
+  
 </ul>
 <div class="tab-content pb-3 pt-3" id="pills-tabContent">
+
   <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
   
-  <div class="row">
-     <div class="col-lg-6 mb-2">
-    <div class="product-item">
-	<div id="ribbon-container">
-      <a href="product-page.html" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   	 <div class="text-div">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	 <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-   <div class="col-lg-6 mb-2">
-    <div class="product-item">
-	<div id="ribbon-container">
-      <a href="product-page.html" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   	<div class="text-div"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	  <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-  </div>
-    <div class="row">
-     <div class="col-lg-6 mb-2">
-    <div class="product-item">
-	<div id="ribbon-container">
-      <a href="product-page.html" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   	<div class="text-div"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	 <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-   <div class="col-lg-6 mb-2">
-    <div class="product-item">
-	<div id="ribbon-container  invisible">
-      <a href="product-page.html" class="invisible" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   	 <div class="text-div">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	 <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-  </div>
+          <div class="row">
+             @if($packages->count() > 0)
+             @foreach($packages as $package)
+                    <div class="col-lg-6 mb-2">
+                    <div class="product-item">
+                      <div id="ribbon-container">
+                          <a href="product-page.html" id="ribbon">Best  Seller</a>
+                      </div>
+                      <div class="width-40"><img src="images/package/{{ $package->image }}" class="img-fluid" alt=""></div>
+                      <div class="width-60">
+                      <h5>{{ $package->name }}</h5>
+                        <div class="text-div">{{ $package->description }}.</div>
+                           {{-- <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a> --}}
+                           <div class="row">
+                                <div class="col-6">
+                                      <p class="text-green">Duration -: <span>{{ $package->period }}</span></p>
+                                </div>
+                                <div class="col-6">
+                                      <p class="text-green">Price -: <span>Rs.{{ $package->price }}</span></p>
+                                </div>
+                           </div>
+                      </div>
+                      </div>
+                  </div>
+              @endforeach
+              @else 
+                   <div class="text-center">
+                        <h3>No Package Found</h3>
+                   </div>
+              @endif
+         
+          </div>
   
   </div>
+
    <div class="tab-pane fade" id="pills-seo" role="tabpanel" aria-labelledby="pills-seo-tab">
   
-  <div class="row">
-     <div class="col-lg-6">
-    <div class="product-item">
-	<div id="ribbon-container">
-      <a href="product-page.html" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   	<div class="text-div">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	  <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-   <div class="col-lg-6">
-    <div class="product-item">
-	<div id="ribbon-container">
-      <a href="product-page.html" id="ribbon">Best  Seller</a>
-   </div>
-	<div class="width-40"><img src="./managed-seo.svg" class="img-fluid" alt=""></div>
-	<div class="width-60">
-	<h5>Managed SEO</h5>
-   <div class="text-div">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</div>
-	  <a class="text-green pt-3" href="pricing.html">$ Starts at $<span>500</span>/month + $<span>250</span> set up</a>
-	 </div>
-	 </div>
-  </div>
-  </div>
+        <div class="row" id="package_div">
+                
+        </div>
   
   </div>
 </div>
@@ -289,12 +231,51 @@
     <!--    JavaScripts-->
     <!-- ===============================================-->
 
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="aos/aos.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   
+    <script>
+
+              function select_category(id){
+
+                  $.ajax({
+                          type: "Get",
+                          url: '{{route('welcome')}}',
+                          datatype: 'json',
+                          data: {
+                              'category_id' : id,
+                          },
+                          success: function (data) {
+                              const obj = JSON.parse(data);
+                              console.log(obj);
+                                var item = $('#package_div');
+                                item.empty();
+                              if(obj.new.packages.length == 0){
+                                      item.append('<div class="text-center mt-5 mb-5"><h4>No Package Found</h4></div>');
+                              }
+                              else{
+                                  $.each(obj.new.packages, function(key,value) {
+                                      item.append('<div class="col-lg-6 mb-2"><div class="product-item"><div id="ribbon-container"><a href="product-page.html" id="ribbon">Best  Seller</a></div><div class="width-40"><img src="images/package/'+ value.image +'" class="img-fluid" alt=""></div><div class="width-60"><h5>' + value.name + '</h5><div class="text-div">'+ value.description +'.</div><div class="row"><div class="col-6"><p class="text-green">Duration -: <span>'+ value.period +'</span></p></div><div class="col-6"><p class="text-green">Price -: <span>Rs.'+ value.price  +'</span></p></div></div></div></div> </div>');
+                                  });
+                              }
+                              
+                                // document.getElementById('nav-'+id).classList.add('active');
+
+                            },
+                          complete: function () {
+                          },
+                          error: function () {
+                          }
+                      });
+
+                }
+
+    </script>
+
   </body>
+
 
 </html>

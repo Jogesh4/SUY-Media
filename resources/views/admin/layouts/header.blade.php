@@ -15,13 +15,14 @@
     <title>Dashboard</title>
 
     <meta name="description" content="" />
-
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
@@ -97,7 +98,7 @@
               </a>
             </li>
 			 <li class="menu-item">
-              <a href="/add-category" class="menu-link">
+              <a href="/categories/create" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-duplicate"></i>
                 <div data-i18n="Analytics">Add Category</div>
               </a>
@@ -110,7 +111,7 @@
             </li>
 
             <li class="menu-item">
-              <a href="/create-package" class="menu-link">
+              <a href="/packages/create" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">Create Package</div>
               </a>
@@ -118,15 +119,22 @@
 
 
              <li class="menu-item">
-              <a href="/manage-user" class="menu-link">
+              <a href="/users" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">Manage User</div>
               </a>
             </li>
-			<li class="menu-item">
+			        <li class="menu-item">
               <a href="/manage-order" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Analytics">Manage Order</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="/adminlogout" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Analytics">Logout</div>
               </a>
             </li>
            

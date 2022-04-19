@@ -13,26 +13,38 @@
                  <div class="col-xl-12 col-lg-12">
 				 <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                               
+  <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
+    @csrf
+             @if(Session::has('success'))
+                <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span> </button>
+                  {{Session::get('success')}}</div>
+               @endif
+               @if(Session::has('fail'))
+              <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                 @endif
+
                                 <div class="card-body">
                                     <div class=" pb-2">
                                         <div class="row">    
 
-    <div class="col-lg-12 col-md-12 mb-4 element-title">
-	 <h4 class="mb-4">Add Category</h4>
-        <input type="text" class="form-control" placeholder="Category Name">
-		 
-    </div>
+                        <div class="col-lg-12 col-md-12 mb-4 element-title">
+                              <h4 class="mb-4">Add Category</h4>
+                            <input type="text" class="form-control" name="name" placeholder="Category Name">
+                        
+                        </div>
 
     
 
-<div class="d-flex justify-content-end">
-													<a href="#" class="add-btn" data-bs-toggle="modal" data-bs-target="">Add</a>
+                      <div class="d-flex justify-content-end">
+													<button type="submit" class="add-btn">Add</button>
 												</div>
 </div>          
                                
                             </div>
                         </div>
+  </form>
                         <!-- Area -->
                        
 
@@ -53,39 +65,41 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class=" pb-2 table-responsive">
-									<table class="table">
-                                  <thead>
-                                    <tr>
-									 <th scope="col">S.no</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col" class="text-end">Action</th>
-									<th scope="col" class="text-end">Action</th>
-                                    </tr>
-                                  </thead>
+									               <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col">S.no</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col" class="text-end">Action</th>
+                                              </tr>
+                                              
+                                            </thead>
 
                                   <tbody>
-                                  <tr>
-								   <td>
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">1</label>
-              </div>
-            </td>
-                                  <td>David Andrew</td>
-                                  <td class="text-end"><a class="edit" href="#"><i class="bx bx-edit"></i></a></td>
-								  <td class="text-end"><a class="edit" href="#"><i class=" bx bx-trash"></i></a></td>
-                                  </tr>  
-<tr>
-								   <td>
-              <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">2</label>
-              </div>
-            </td>
-                                  <td>David Andrew</td>
-                                  <td class="text-end"><a class="edit" href="#"><i class="bx bx-edit"></i></a></td>
-								  <td class="text-end"><a class="edit" href="#"><i class=" bx bx-trash"></i></a></td>
-                                  </tr>
+                                  @if($categories->count() > 0)
+                                              @foreach($categories as $category)
+                                                <tr>
+                                                     <td>{{ $loop->iteration }}</td>
+                                                     <td>{{ $category->name }}</td>
+                                                     <td>@if($category->status)
+                                                            @php $statusBtn = '<a title="Deactivate" href="'. route('change_status', ['type' => 'category', 'id' => $category->id, 'status' => '0']) .'" class="btn btn-danger btn-sm"><i class="fas fa-solid fa-user-times"></i></a>' @endphp
+                                                            Active
+                                                        @else
+                                                            @php $statusBtn = '<a title="Activate" href="'. route('change_status', ['type' => 'category', 'id' => $category->id, 'status' => '1']) .'" class="btn btn-success btn-sm"><i class="fa fa-user-plus" aria-hidden="true"></i></a>' @endphp
+                                                            Deactive
+                                                        @endif</td>
+                                                        <td>
+                                                        {!! $statusBtn !!}
+                                                        
+                                                    </td>
+                                                </tr>
+                                               @endforeach
+                                              @else
+                                                  <div class="text-center">
+                                                       <h3>No Category Found</h3>
+                                                  </div>
+                                              @endif
 
 
                                   </tbody>                                        
